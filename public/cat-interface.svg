@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <linearGradient id="pl" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a94bff"/><stop offset="1" stop-color="#6d27cf"/></linearGradient>
+    <linearGradient id="pr" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#8f36f1"/><stop offset="1" stop-color="#562097"/></linearGradient>
+    <linearGradient id="vb" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#b557ff"/><stop offset="1" stop-color="#7c31dc"/></linearGradient>
+    <linearGradient id="vd" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7027c7"/><stop offset="1" stop-color="#35105f"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#ffd14a"/><stop offset="1" stop-color="#ffad20"/></linearGradient>
+    <linearGradient id="bl" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#fffdf7"/><stop offset="1" stop-color="#e8e1db"/></linearGradient>
+    <linearGradient id="br" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ded7d2"/><stop offset="1" stop-color="#cfc6c0"/></linearGradient>
+    <style>
+      .eye{transform-box:fill-box;transform-origin:center;animation:blink 4.4s steps(1,end) infinite}
+      .whiskers{transform-box:fill-box;transform-origin:center;animation:whisker 2.8s ease-in-out infinite alternate}
+      #static-mode:target~#eyes .eye{animation:none}
+      #static-mode:target~.whiskers{animation:none}
+      #right-mode:target~#eyes .eye{animation:none;transform:translateX(14px)}
+      #right-mode:target~.whiskers{animation:none}
+      #look-mode:target~#eyes .eye{animation:eye-look 2.8s ease-in-out infinite}
+      #look-mode:target~.whiskers{animation:none}
+      #edit-mode:target~#eyes .eye{animation:edit-eyes 4.8s steps(1,end) infinite}
+      #edit-mode:target~#mouth{animation:edit-mouth-hide 4.8s steps(1,end) infinite}
+      #edit-mode:target~#edit-smile,
+      #edit-mode:target~#edit-thumb{display:block;animation:edit-reveal 4.8s steps(1,end) infinite}
+      #edit-smile,#edit-thumb{display:none}
+      @keyframes blink{0%,88%,100%{transform:scaleY(1)}91%,94%{transform:scaleY(.06)}}
+      @keyframes eye-look{0%,100%{transform:translateX(-10px)}50%{transform:translateX(10px)}}
+      @keyframes edit-eyes{0%,24%{transform:scale(1)}25%,49%{transform:translateX(-8px)}50%,74%{transform:translateX(8px)}75%,100%{transform:scaleY(.72)}}
+      @keyframes edit-mouth-hide{0%,74%{opacity:1}75%,100%{opacity:0}}
+      @keyframes edit-reveal{0%,74%{opacity:0}75%,100%{opacity:1}}
+      @keyframes whisker{to{transform:rotate(.8deg)}}
+      @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    </style>
+  </defs>
+
+  <g id="static-mode"/>
+  <g id="right-mode"/>
+  <g id="look-mode"/>
+  <g id="edit-mode"/>
+
+  <g id="silhouette">
+    <polygon points="105,82 390,250 500,150 610,250 895,82 905,430 860,635 730,790 500,920 270,790 140,635 95,430" fill="#8237e9"/>
+    <polygon points="105,82 390,250 500,560 500,920 270,790 140,635 95,430" fill="url(#pl)"/>
+    <polygon points="895,82 610,250 500,560 500,920 730,790 860,635 905,430" fill="url(#pr)"/>
+  </g>
+
+  <g id="facets">
+    <polygon points="105,82 390,250 182,350" fill="#913cff"/>
+    <polygon points="105,82 182,350 95,430" fill="#ab50ff"/>
+    <polygon points="105,82 275,260 182,350" fill="#3e176d"/>
+    <polygon points="895,82 610,250 818,350" fill="#7c2ce1"/>
+    <polygon points="895,82 818,350 905,430" fill="#9e44ff"/>
+    <polygon points="895,82 725,260 818,350" fill="#40166f"/>
+    <polygon points="390,250 500,150 500,560" fill="#a547f6"/>
+    <polygon points="610,250 500,150 500,560" fill="#5d22a9"/>
+    <polygon points="390,250 285,320 475,565" fill="#8a37dd"/>
+    <polygon points="610,250 715,320 525,565" fill="#7a2bd0"/>
+    <polygon points="285,320 182,350 145,490 475,565" fill="url(#vb)"/>
+    <polygon points="715,320 818,350 855,490 525,565" fill="url(#vd)"/>
+    <polygon points="145,490 140,635 270,790 300,610" fill="#8134df"/>
+    <polygon points="855,490 860,635 730,790 700,610" fill="#6725b6"/>
+    <polygon points="145,490 300,610 270,790 140,635" fill="#9a42f0"/>
+    <polygon points="855,490 700,610 730,790 860,635" fill="#7c2ccb"/>
+    <polygon points="300,610 500,560 500,920 270,790" fill="#a34cff"/>
+    <polygon points="700,610 500,560 500,920 730,790" fill="#6f26bd"/>
+    <polygon points="300,610 385,700 500,560" fill="#7330c4"/>
+    <polygon points="700,610 615,700 500,560" fill="#4f1d8d"/>
+    <polygon points="385,700 500,680 500,920 270,790" fill="#9542ed" opacity=".7"/>
+    <polygon points="615,700 500,680 500,920 730,790" fill="#6224a8" opacity=".72"/>
+  </g>
+
+  <g id="eyes">
+    <g class="eye">
+      <polygon points="178,485 318,438 414,500 344,605 204,566" fill="url(#gold)"/>
+      <polygon points="213,500 316,464 383,507 329,572 232,548" fill="#130f18"/>
+      <polygon points="290,484 328,500 303,532" fill="#fffdf7"/>
+    </g>
+    <g class="eye">
+      <polygon points="822,485 682,438 586,500 656,605 796,566" fill="url(#gold)"/>
+      <polygon points="787,500 684,464 617,507 671,572 768,548" fill="#130f18"/>
+      <polygon points="710,484 672,500 697,532" fill="#fffdf7"/>
+    </g>
+  </g>
+
+  <g id="bandage">
+    <polygon points="366,584 500,548 500,615 370,650" fill="url(#bl)"/>
+    <polygon points="634,584 500,548 500,615 630,650" fill="url(#br)"/>
+  </g>
+
+  <g id="nose">
+    <polygon points="442,675 500,674 558,675 500,737" fill="#2e0d3d"/>
+    <polygon points="442,675 500,674 476,705" fill="#4d176c"/>
+    <polygon points="558,675 500,674 524,705" fill="#38104e"/>
+  </g>
+
+  <g id="mouth" fill="none" stroke="#35104e" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M500 736V765L465 793L434 774" stroke-width="15"/>
+    <path d="M500 765L535 793L566 774" stroke-width="15"/>
+  </g>
+
+  <g id="edit-smile" fill="none" stroke="#35104e" stroke-linecap="round">
+    <path d="M430 748Q500 828 570 748" stroke-width="18"/>
+    <path d="M458 780Q500 800 542 780" stroke="#fffdf7" stroke-width="9"/>
+  </g>
+
+  <g id="edit-thumb" transform="translate(790 690) scale(.72) rotate(-5)">
+    <rect x="0" y="105" width="48" height="94" rx="10" fill="#eee8df"/>
+    <path d="M48 105H70L92 37Q99 14 116 17Q135 21 129 45L116 97H166Q191 97 187 123L177 181Q173 201 151 201H48Z" fill="#9140ed"/>
+    <path d="M116 97H166M111 126H181M105 154H178M98 180H174" fill="none" stroke="#6b25b8" stroke-width="8" stroke-linecap="round"/>
+    <rect x="11" y="119" width="26" height="8" rx="4" fill="#cfc7c0"/>
+  </g>
+
+  <g class="whiskers" fill="none" stroke="#42126e" stroke-linecap="square">
+    <path d="M370 700L58 727" stroke-width="7"/>
+    <path d="M372 721L90 804" stroke-width="7"/>
+    <path d="M372 741L164 848" stroke-width="7"/>
+    <path d="M630 700L942 727" stroke-width="7"/>
+    <path d="M628 721L910 804" stroke-width="7"/>
+    <path d="M628 741L836 848" stroke-width="7"/>
+  </g>
+</svg>
