@@ -502,7 +502,7 @@ function SkillPanelVisual({ kind }: { kind: string }) {
 }
 
 export default function Home() {
-  const [activeProject, setActiveProject] = useState(0);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
   const [activeMedia, setActiveMedia] = useState(0);
   const [playingMedia, setPlayingMedia] = useState<string | null>(null);
   const [playing, setPlaying] = useState(true);
@@ -577,7 +577,35 @@ export default function Home() {
   useEffect(() => {
     const shouldLockIntro = introPhase !== "done";
     document.body.classList.toggle("intro-lock", shouldLockIntro);
-    return () => document.body.classList.remove("intro-lock");
+    document.documentElement.classList.toggle("intro-lock", shouldLockIntro);
+
+    if (!shouldLockIntro) return;
+
+    window.scrollTo(0, 0);
+    const preventScroll = (event: Event) => event.preventDefault();
+    const preventScrollKeys = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const isControl = target?.closest("button, a, input, textarea, select");
+      if (
+        !isControl &&
+        ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)
+      ) {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+    window.addEventListener("keydown", preventScrollKeys, true);
+
+    return () => {
+      document.body.classList.remove("intro-lock");
+      document.documentElement.classList.remove("intro-lock");
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", preventScrollKeys, true);
+      window.scrollTo(0, 0);
+    };
   }, [introPhase]);
 
   useEffect(() => {
@@ -620,14 +648,15 @@ export default function Home() {
     return () => window.clearInterval(questionTimer);
   }, []);
 
-  const selected = projects[activeProject];
-  const selectedMedia = selected.media[activeMedia];
+  const selected = activeProject === null ? null : projects[activeProject];
+  const selectedMedia = selected?.media[activeMedia] ?? null;
   const selectProject = (index: number) => {
     setActiveProject(index);
     setActiveMedia(0);
     setPlayingMedia(null);
   };
   const moveMedia = (direction: number) => {
+    if (!selected) return;
     setActiveMedia((current) =>
       (current + direction + selected.media.length) % selected.media.length
     );
@@ -670,7 +699,6 @@ export default function Home() {
           <div className="intro-bottom">
             <div className="intro-counter">
               <strong>{String(loadProgress).padStart(3, "0")}</strong>
-              <span>%</span>
             </div>
             <div className="intro-progress">
               <span key={isLoadingCorrection ? "correction" : "main"}>
@@ -831,55 +859,69 @@ export default function Home() {
 
         <div className="work-layout">
           <div className="project-preview">
-            <div className="project-scene project-scene-media">
-              <div className="project-media" key={`${selected.code}-${activeMedia}`}>
-                {selectedMedia.kind === "image" && (
-                  <img
-                    src={selectedMedia.src}
-                    alt={`${selected.title[locale]} — ${selectedMedia.label}`}
-                  />
-                )}
-                {selectedMedia.kind === "video" && playingMedia === selectedMedia.id && (
-                  <iframe
-                    src={`https://drive.google.com/file/d/${selectedMedia.id}/preview`}
-                    title={`${selected.title[locale]} — ${selectedMedia.label}`}
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                  />
-                )}
-                {selectedMedia.kind === "video" && playingMedia !== selectedMedia.id && (
-                  <button
-                    className="project-video-poster"
-                    type="button"
-                    onClick={() => setPlayingMedia(selectedMedia.id)}
-                    aria-label={locale === "ru" ? `Смотреть ${selectedMedia.label}` : `Play ${selectedMedia.label}`}
-                  >
-                    <img
-                      src={selectedMedia.poster}
-                      alt=""
-                      aria-hidden="true"
-                    />
-                    <span className="project-video-play">
-                      <i />
-                      {locale === "ru" ? "СМОТРЕТЬ" : "PLAY"}
-                    </span>
-                  </button>
-                )}
+            {selected && selectedMedia ? (
+              <>
+                <div className="project-scene project-scene-media">
+                  <div className="project-media" key={`${selected.code}-${activeMedia}`}>
+                    {selectedMedia.kind === "image" && (
+                      <img
+                        src={selectedMedia.src}
+                        alt={`${selected.title[locale]} — ${selectedMedia.label}`}
+                      />
+                    )}
+                    {selectedMedia.kind === "video" && playingMedia === selectedMedia.id && (
+                      <iframe
+                        src={`https://drive.google.com/file/d/${selectedMedia.id}/preview`}
+                        title={`${selected.title[locale]} — ${selectedMedia.label}`}
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                      />
+                    )}
+                    {selectedMedia.kind === "video" && playingMedia !== selectedMedia.id && (
+                      <button
+                        className="project-video-poster"
+                        type="button"
+                        onClick={() => setPlayingMedia(selectedMedia.id)}
+                        aria-label={locale === "ru" ? `Смотреть ${selectedMedia.label}` : `Play ${selectedMedia.label}`}
+                      >
+                        <img
+                          src={selectedMedia.poster}
+                          alt=""
+                          aria-hidden="true"
+                        />
+                        <span className="project-video-play">
+                          <i />
+                          {locale === "ru" ? "СМОТРЕТЬ" : "PLAY"}
+                        </span>
+                      </button>
+                    )}
+                  </div>
+                  <div className="project-frame-label">
+                    <span>{selected.code}</span>
+                    <span>{selectedMedia.label}</span>
+                  </div>
+                </div>
+                <div className="preview-caption">
+                  <div className="project-carousel-controls">
+                    <button type="button" onClick={() => moveMedia(-1)} aria-label="Previous work">←</button>
+                    <span>{String(activeMedia + 1).padStart(2, "0")} / {String(selected.media.length).padStart(2, "0")}</span>
+                    <button type="button" onClick={() => moveMedia(1)} aria-label="Next work">→</button>
+                  </div>
+                  <p><strong>{selectedMedia.label}</strong>{selected.caption[locale]}</p>
+                  <a href={selectedMedia.href} target="_blank" rel="noreferrer">{t.openWork}</a>
+                </div>
+              </>
+            ) : (
+              <div className="project-scene project-scene-1" aria-hidden="true">
+                <div className="project-grid" />
+                <div className="project-orbit orbit-one" />
+                <div className="project-orbit orbit-two" />
+                <div className="project-frame-label">
+                  <span>REC_00</span>
+                  <span>STANDBY</span>
+                </div>
               </div>
-              <div className="project-frame-label">
-                <span>{selected.code}</span>
-                <span>{selectedMedia.label}</span>
-              </div>
-            </div>
-            <div className="preview-caption">
-              <div className="project-carousel-controls">
-                <button type="button" onClick={() => moveMedia(-1)} aria-label="Previous work">←</button>
-                <span>{String(activeMedia + 1).padStart(2, "0")} / {String(selected.media.length).padStart(2, "0")}</span>
-                <button type="button" onClick={() => moveMedia(1)} aria-label="Next work">→</button>
-              </div>
-              <p><strong>{selectedMedia.label}</strong>{selected.caption[locale]}</p>
-              <a href={selectedMedia.href} target="_blank" rel="noreferrer">{t.openWork}</a>
-            </div>
+            )}
           </div>
 
           <div className="project-list" role="list" aria-label={t.selectedProjects}>

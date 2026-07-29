@@ -69,8 +69,16 @@ a {
   top: 1rem;
 }
 
+html.intro-lock,
 body.intro-lock {
   overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.intro-lock {
+  position: fixed;
+  inset: 0;
+  width: 100%;
 }
 
 .intro-loader {
@@ -205,27 +213,23 @@ body.intro-lock {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  transition: opacity 350ms ease, transform 650ms cubic-bezier(0.76, 0, 0.24, 1);
+  transition: opacity 280ms ease;
 }
 
 .intro-counter {
-  display: flex;
-  align-items: flex-start;
+  display: block;
   font-family: var(--intro-mono);
 }
 
 .intro-counter strong {
+  display: block;
   font-size: clamp(5rem, 14vw, 15rem);
   font-weight: 430;
   letter-spacing: -0.1em;
   line-height: 0.66;
   font-variant-numeric: tabular-nums;
-}
-
-.intro-counter span {
-  margin: 0.35rem 0 0 0.7rem;
-  color: var(--violet-hot);
-  font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+  font-feature-settings: "tnum" 1;
+  white-space: nowrap;
 }
 
 .intro-progress {
@@ -346,7 +350,7 @@ body.intro-lock {
 
 .intro-loader-morphing .intro-bottom {
   opacity: 0;
-  transform: translateY(15vh);
+  transform: none;
 }
 
 .intro-loader-morphing .intro-morph-menu span {
@@ -638,7 +642,9 @@ body.intro-lock {
 .hero-title .typing-cursor {
   position: absolute;
   right: -0.12em;
-  bottom: 0.07em;
+  top: 0.12em;
+  bottom: auto;
+  height: 0.68em;
   margin-left: 0;
 }
 
