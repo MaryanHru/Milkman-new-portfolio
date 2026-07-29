@@ -8,6 +8,7 @@ type Locale = "en" | "ru";
 const projects = [
   {
     code: "D-01",
+    folderHref: "https://drive.google.com/drive/folders/1RXwIFvlev8hFutVr_ChGR4dIiZwCU6O4?usp=drive_link",
     title: { en: "Design", ru: "Дизайн" },
     discipline: {
       en: "BANNERS / IMAGES / OTHER",
@@ -15,32 +16,53 @@ const projects = [
     },
     year: "2022—",
     caption: {
-      en: "Banners, images and all kinds of visual stuff.",
-      ru: "Баннеры, картинки и всякая визуальная лабуда.",
+      en: "Commercial banners, thumbnails and game visuals made in Photoshop.",
+      ru: "Коммерческие баннеры, обложки и игровая графика, собранные в Photoshop.",
     },
+    media: [
+      { kind: "image", src: "/portfolio/design-army.webp", label: "ARMY", href: "https://drive.google.com/file/d/1c_ixlHBNe-pwm6io1F4uvlZ6XJ1gejCs/view" },
+      { kind: "image", src: "/portfolio/design-collage.webp", label: "COLLAGE", href: "https://drive.google.com/file/d/1vdgM5_ttWeEAcs2O-lWA-qja1HTe9JqJ/view" },
+      { kind: "image", src: "/portfolio/design-oceans.webp", label: "OCEAN'S", href: "https://drive.google.com/file/d/11rnwQjFMkt46dvarR4-GBYczRgI9WMFx/view" },
+      { kind: "image", src: "/portfolio/design-manul.webp", label: "GHOST OF MANUL", href: "https://drive.google.com/file/d/1JN1POOxR6bjuCfdhVS6gux0c_F_V6RHA/view" },
+    ],
   },
   {
     code: "A-02",
+    folderHref: "https://drive.google.com/drive/folders/1zRo4pwItW4w9kJqYU9Zm_DbZzdViEKNK",
     title: { en: "Animation", ru: "Анимация" },
     discipline: { en: "2D / 3D / CHARACTERS", ru: "2D / 3D / ПЕРСОНАЖИ" },
     year: "2024—",
     caption: {
-      en: "2D, 3D and character animation.",
-      ru: "2D, 3D и персонажная анимация.",
+      en: "Character animation and cutout work made with Moho rigs.",
+      ru: "Персонажная и перекладочная анимация, собранная на ригах в Moho.",
     },
+    media: [
+      { kind: "video", id: "1HaZl1eBRG7MW5f4OECALMn9Pku_cv8HY", poster: "/portfolio/animation-502.webp", label: "502", href: "https://drive.google.com/file/d/1HaZl1eBRG7MW5f4OECALMn9Pku_cv8HY/view" },
+      { kind: "video", id: "1Dakf69j49eQ8wlHJqq-nf39cdO7lOdqC", poster: "/portfolio/animation-robots.webp", label: "DANCING ROBOTS", href: "https://drive.google.com/file/d/1Dakf69j49eQ8wlHJqq-nf39cdO7lOdqC/view" },
+      { kind: "video", id: "1F6zmw4Y2Ebot8FnMCNbkh77Ros0_D2go", poster: "/portfolio/animation-universe.webp", label: "LIL UNIVERSE", href: "https://drive.google.com/file/d/1F6zmw4Y2Ebot8FnMCNbkh77Ros0_D2go/view" },
+      { kind: "video", id: "1R7ejRrGf_ACvz1TNuQOJPVS6k7YOBJNt", poster: "/portfolio/animation-pes.webp", label: "PES", href: "https://drive.google.com/file/d/1R7ejRrGf_ACvz1TNuQOJPVS6k7YOBJNt/view" },
+    ],
   },
   {
     code: "E-03",
+    folderHref: "https://drive.google.com/drive/folders/1R_PkOazenv5rVU62Y3LGC_9qrwawX8nT?usp=drive_link",
     title: { en: "Editing", ru: "Монтаж" },
     discipline: { en: "VIDEO / SOUND / COLOR", ru: "ВИДЕО / ЗВУК / ЦВЕТ" },
     year: "2023—",
     caption: {
-      en: "Editing, sound work and color.",
-      ru: "Монтаж, работа со звуком и цветом.",
+      en: "A fast-paced event promo assembled, graded and finished in DaVinci Resolve.",
+      ru: "Динамичный проморолик: монтаж, цвет и финальная сборка в DaVinci Resolve.",
     },
+    media: [
+      { kind: "video", id: "1HDKsnNhNORYSc8hlgCUjhd7lK9kqP8Lf", poster: "/portfolio/editing-rave.webp", label: "RAVE PLANET", href: "https://drive.google.com/file/d/1HDKsnNhNORYSc8hlgCUjhd7lK9kqP8Lf/view" },
+      { kind: "video", id: "11GHNxSKaQsXLaBjVN66vb8j2Jj0n5KEQ", poster: "/portfolio/editing-forum.webp", label: "FORUM 2023", href: "https://drive.google.com/file/d/11GHNxSKaQsXLaBjVN66vb8j2Jj0n5KEQ/view" },
+      { kind: "video", id: "1nDkKIR5Bk9JIlmn2FqTuluA4m8YySFl_", poster: "/portfolio/editing-rocket.webp", label: "ROCKET", href: "https://drive.google.com/file/d/1nDkKIR5Bk9JIlmn2FqTuluA4m8YySFl_/view" },
+      { kind: "video", id: "1ABRySv5n0J9e4Zfr_pYsuniR1nS9lqLy", poster: "/portfolio/editing-viking.webp", label: "VIKING", href: "https://drive.google.com/file/d/1ABRySv5n0J9e4Zfr_pYsuniR1nS9lqLy/view" },
+    ],
   },
   {
     code: "AI-04",
+    folderHref: "https://drive.google.com/drive/folders/1os5xcU7bABfoZfB1NcY0QBLDu-E0cvlK?usp=drive_link",
     title: { en: "AI Motion", ru: "ИИ-моушен" },
     discipline: {
       en: "AI VIDEO / VFX / ANIMATION",
@@ -48,24 +70,35 @@ const projects = [
     },
     year: "2024—",
     caption: {
-      en: "Generative video, AI effects and hybrid motion.",
-      ru: "Генеративное видео, нейроэффекты и гибридный моушен.",
+      en: "A collection of AI materials and my work with generative visuals.",
+      ru: "Здесь собраны ИИ-материалы и мои работы с генеративным визуалом.",
     },
+    media: [
+      { kind: "video", id: "1OJDEug_YAt4xGglbP7wcEiOBOgpVKYKd", poster: "/portfolio/ai-mara.webp", label: "MARA / COLLAB", href: "https://drive.google.com/file/d/1OJDEug_YAt4xGglbP7wcEiOBOgpVKYKd/view" },
+      { kind: "video", id: "1v-P4MSmtHe4Qto9X02QrPbLnqH7bmMYe", poster: "/portfolio/ai-aeon.webp", label: "AEON / COLLAB", href: "https://drive.google.com/file/d/1v-P4MSmtHe4Qto9X02QrPbLnqH7bmMYe/view" },
+      { kind: "video", id: "1rsWeO6raeRCYoEjXCEYlMqCrbWF26DQe", poster: "/portfolio/ai-film.webp", label: "FILM", href: "https://drive.google.com/file/d/1rsWeO6raeRCYoEjXCEYlMqCrbWF26DQe/view" },
+      { kind: "video", id: "1qepydv5WvlmBxXnteTDZdTcDrwbY5sjM", poster: "/portfolio/ai-study.webp", label: "AI STUDY", href: "https://drive.google.com/file/d/1qepydv5WvlmBxXnteTDZdTcDrwbY5sjM/view" },
+    ],
   },
   {
     code: "X-05",
+    folderHref: "https://drive.google.com/drive/folders/1__OhyH3Gdvv0N__A95QzfXMzDlH5VynY?usp=drive_link",
     title: { en: "Other", ru: "Прочее" },
     discipline: {
-      en: "EXPERIMENTS / TESTS / THINGS",
-      ru: "ЭКСПЕРИМЕНТЫ / ТЕСТЫ / ШТУКИ",
+      en: "RIGGING / CHARACTERS / MOHO",
+      ru: "РИГГИНГ / ПЕРСОНАЖИ / MOHO",
     },
     year: "—",
     caption: {
-      en: "Everything that does not fit neatly into a category.",
-      ru: "Всё, что не помещается в аккуратные категории.",
+      en: "Rigging examples: character setup, controls and animation tests in Moho.",
+      ru: "Примеры риггинга персонажей: настройка костей, контроллеров и тесты движения в Moho.",
     },
+    media: [
+      { kind: "video", id: "18hQ6Cbu-dK8bDm-PPQiMq9WREITngbL5", poster: "/portfolio/rig-character.webp", label: "CHARACTER RIG", href: "https://drive.google.com/file/d/18hQ6Cbu-dK8bDm-PPQiMq9WREITngbL5/view" },
+      { kind: "video", id: "1j5JC5vt4s11ZywKqJOQyyKbm-S0shJUg", poster: "/portfolio/rig-black-cat.webp", label: "BLACK CAT RIG", href: "https://drive.google.com/file/d/1j5JC5vt4s11ZywKqJOQyyKbm-S0shJUg/view" },
+    ],
   },
-];
+] as const;
 
 const lanes: [string, Record<Locale, string>, Record<Locale, string>, string][] = [
   ["01", { en: "DESIGN", ru: "ДИЗАЙН" }, { en: "Photoshop · Figma", ru: "Photoshop · Figma" }, "lane-edit"],
@@ -149,9 +182,12 @@ const copy = {
     workKicker: "PORTFOLIO / SELECTED WORK",
     mediaOffline: "MEDIA OFFLINE",
     videoHere: "VIDEO WILL BE LINKED HERE",
+    liveMedia: "PORTFOLIO MATERIAL",
+    openWork: "OPEN FULL ↗",
     selectedProjects: "Selected projects",
     pipelineKicker: "SKILLS / WHAT I DO",
     frameByFrame: "CLICK A TRACK",
+    trackHint: "CLICKABLE",
     rawInput: "NO BIG CLAIMS",
     skillsQuestion: "HOW DO I MAKE THINGS",
     capabilities: "Creative capabilities",
@@ -202,9 +238,12 @@ const copy = {
     workKicker: "ПОРТФОЛИО / ИЗБРАННЫЕ РАБОТЫ",
     mediaOffline: "МЕДИА ОФЛАЙН",
     videoHere: "ЗДЕСЬ БУДЕТ ВИДЕО",
+    liveMedia: "МАТЕРИАЛ ИЗ ПОРТФОЛИО",
+    openWork: "ОТКРЫТЬ ПОЛНОСТЬЮ ↗",
     selectedProjects: "Избранные проекты",
     pipelineKicker: "НАВЫКИ / ЧТО Я ДЕЛАЮ",
     frameByFrame: "НАЖМИ НА ДОРОЖКУ",
+    trackHint: "КЛИКАБЕЛЬНО",
     rawInput: "БЕЗ ГРОМКИХ СЛОВ",
     skillsQuestion: "КАК Я ДЕЛАЮ ШТУКИ",
     capabilities: "Творческие компетенции",
@@ -464,6 +503,8 @@ function SkillPanelVisual({ kind }: { kind: string }) {
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
+  const [activeMedia, setActiveMedia] = useState(0);
+  const [playingMedia, setPlayingMedia] = useState<string | null>(null);
   const [playing, setPlaying] = useState(true);
   const [frame, setFrame] = useState(0);
   const [introPhase, setIntroPhase] = useState<
@@ -580,6 +621,18 @@ export default function Home() {
   }, []);
 
   const selected = projects[activeProject];
+  const selectedMedia = selected.media[activeMedia];
+  const selectProject = (index: number) => {
+    setActiveProject(index);
+    setActiveMedia(0);
+    setPlayingMedia(null);
+  };
+  const moveMedia = (direction: number) => {
+    setActiveMedia((current) =>
+      (current + direction + selected.media.length) % selected.media.length
+    );
+    setPlayingMedia(null);
+  };
   const isLoadingCorrection = loadProgress >= 45;
   const selectLocale = (nextLocale: Locale) => {
     setLocale(nextLocale);
@@ -712,10 +765,6 @@ export default function Home() {
           <div className="reel-object reel-object-b" />
           <div className="reel-slice reel-slice-a" />
           <div className="reel-slice reel-slice-b" />
-          <div className="reel-copy">
-            <span>{t.reelPlaceholder}</span>
-            <strong>{t.reelHeadline[0]}<br />{t.reelHeadline[1]}</strong>
-          </div>
           <div className="reel-hud reel-hud-top">
             <span><i className="record-dot" /> REC_01</span>
             <span>{formatTimecode(frame)}</span>
@@ -782,43 +831,85 @@ export default function Home() {
 
         <div className="work-layout">
           <div className="project-preview">
-            <div className={`project-scene project-scene-${activeProject + 1}`}>
-              <div className="project-grid" />
-              <div className="project-orbit orbit-one" />
-              <div className="project-orbit orbit-two" />
+            <div className="project-scene project-scene-media">
+              <div className="project-media" key={`${selected.code}-${activeMedia}`}>
+                {selectedMedia.kind === "image" && (
+                  <img
+                    src={selectedMedia.src}
+                    alt={`${selected.title[locale]} — ${selectedMedia.label}`}
+                  />
+                )}
+                {selectedMedia.kind === "video" && playingMedia === selectedMedia.id && (
+                  <iframe
+                    src={`https://drive.google.com/file/d/${selectedMedia.id}/preview`}
+                    title={`${selected.title[locale]} — ${selectedMedia.label}`}
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                  />
+                )}
+                {selectedMedia.kind === "video" && playingMedia !== selectedMedia.id && (
+                  <button
+                    className="project-video-poster"
+                    type="button"
+                    onClick={() => setPlayingMedia(selectedMedia.id)}
+                    aria-label={locale === "ru" ? `Смотреть ${selectedMedia.label}` : `Play ${selectedMedia.label}`}
+                  >
+                    <img
+                      src={selectedMedia.poster}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <span className="project-video-play">
+                      <i />
+                      {locale === "ru" ? "СМОТРЕТЬ" : "PLAY"}
+                    </span>
+                  </button>
+                )}
+              </div>
               <div className="project-frame-label">
                 <span>{selected.code}</span>
-                <span>{t.mediaOffline}</span>
-              </div>
-              <div className="offline-type">
-                <strong>{selected.title[locale]}</strong>
-                <span>{t.videoHere}</span>
+                <span>{selectedMedia.label}</span>
               </div>
             </div>
             <div className="preview-caption">
-              <span>{String(activeProject + 1).padStart(2, "0")} / 05</span>
-              <p>{selected.caption[locale]}</p>
+              <div className="project-carousel-controls">
+                <button type="button" onClick={() => moveMedia(-1)} aria-label="Previous work">←</button>
+                <span>{String(activeMedia + 1).padStart(2, "0")} / {String(selected.media.length).padStart(2, "0")}</span>
+                <button type="button" onClick={() => moveMedia(1)} aria-label="Next work">→</button>
+              </div>
+              <p><strong>{selectedMedia.label}</strong>{selected.caption[locale]}</p>
+              <a href={selectedMedia.href} target="_blank" rel="noreferrer">{t.openWork}</a>
             </div>
           </div>
 
           <div className="project-list" role="list" aria-label={t.selectedProjects}>
             {projects.map((project, index) => (
-              <button
+              <div
                 className={`project-row ${index === activeProject ? "is-active" : ""}`}
                 key={project.code}
-                type="button"
-                onMouseEnter={() => setActiveProject(index)}
-                onFocus={() => setActiveProject(index)}
-                onClick={() => setActiveProject(index)}
                 role="listitem"
-                aria-pressed={index === activeProject}
               >
-                <span className="project-code">{project.code}</span>
-                <span className="project-name">{project.title[locale]}</span>
-                <span className="project-discipline">{project.discipline[locale]}</span>
-                <span className="project-year">{project.year}</span>
-                <span className="project-arrow">↗</span>
-              </button>
+                <button
+                  className="project-row-select"
+                  type="button"
+                  onClick={() => selectProject(index)}
+                  aria-pressed={index === activeProject}
+                >
+                  <span className="project-code">{project.code}</span>
+                  <span className="project-name">{project.title[locale]}</span>
+                  <span className="project-discipline">{project.discipline[locale]}</span>
+                  <span className="project-year">{project.year}</span>
+                </button>
+                <a
+                  className="project-folder-link"
+                  href={project.folderHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${locale === "ru" ? "Открыть папку" : "Open folder"}: ${project.title[locale]}`}
+                >
+                  ↗
+                </a>
+              </div>
             ))}
           </div>
         </div>
@@ -839,6 +930,11 @@ export default function Home() {
               {"?".repeat(questionSequence[questionStep])}
             </span>
           </h2>
+        </div>
+
+        <div className="timeline-hint" aria-hidden="true">
+          <span>{t.trackHint}</span>
+          <strong>↓</strong>
         </div>
 
         <div className="timeline-ruler" aria-hidden="true">
